@@ -1,0 +1,661 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXORA — Create Account</title>
+
+<style>
+/* ===== PROFESSIONAL TECHNOLOGY THEME ===== */
+:root {
+  --bg: #080B14;
+  --panel: #101522;
+  --text: #F4F6FC;
+  --muted: #929CB2;
+  --primary: #8B7CFF;
+  --cyan: #43D9E8;
+  --border: rgba(255,255,255,.10);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ===== ANIMATED BACKGROUND ===== */
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 12% 15%,
+      rgba(91,73,220,.18), transparent 38%),
+    radial-gradient(ellipse at 88% 85%,
+      rgba(28,174,197,.12), transparent 35%),
+    var(--bg);
+}
+
+.orb {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: .25;
+  animation: float 9s ease-in-out infinite alternate;
+}
+
+.orb.one {
+  background: #7662ff;
+  top: 5%;
+  left: -120px;
+}
+
+.orb.two {
+  background: #00bcd4;
+  right: -100px;
+  bottom: 5%;
+  animation-delay: -4s;
+}
+
+@keyframes float {
+  to { transform: translate(70px, 50px) scale(1.2); }
+}
+
+/* ===== HEADER ===== */
+header {
+  width: 100%;
+  max-width: 1250px;
+  margin: auto;
+  padding: 27px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 850;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #fff, #a99dff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.logo span { color: var(--cyan); }
+
+.header-link {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.header-link a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 8px;
+  font-weight: 700;
+}
+
+.header-link a:hover { color: var(--cyan); }
+
+/* ===== MAIN LAYOUT ===== */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1160px;
+  margin: auto;
+  padding: 28px 24px 55px;
+  display: grid;
+  grid-template-columns: 1fr 430px;
+  align-items: center;
+  gap: 70px;
+}
+
+/* ===== LEFT CONTENT ===== */
+.intro {
+  animation: slideIn .8s ease both;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 13px;
+  border: 1px solid rgba(139,124,255,.35);
+  background: rgba(139,124,255,.08);
+  border-radius: 50px;
+  color: #C0B7FF;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.eyebrow i {
+  width: 7px;
+  height: 7px;
+  background: var(--cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--cyan);
+}
+
+h1 {
+  font-size: clamp(42px, 5vw, 66px);
+  line-height: 1.08;
+  letter-spacing: -2.8px;
+  margin: 28px 0 22px;
+}
+
+.gradient-text {
+  background: linear-gradient(100deg,
+    #A99AFF 10%, #6DE8F0 90%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.intro p {
+  max-width: 490px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.benefits {
+  margin-top: 32px;
+  display: grid;
+  gap: 17px;
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: #DCE2F0;
+  font-size: 14px;
+}
+
+.check {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(67,217,232,.25);
+  background: rgba(67,217,232,.08);
+  color: var(--cyan);
+  border-radius: 8px;
+}
+
+/* ===== SIGNUP CARD ===== */
+.signup-card {
+  position: relative;
+  padding: 34px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: linear-gradient(
+    145deg,
+    rgba(22,28,46,.96),
+    rgba(12,16,28,.97)
+  );
+  box-shadow: 0 30px 100px rgba(0,0,0,.38);
+  animation: slideIn .8s .15s ease both;
+}
+
+.signup-card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 20%;
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(
+    90deg, transparent, #A99AFF, var(--cyan), transparent
+  );
+}
+
+.card-heading {
+  margin-bottom: 25px;
+}
+
+.card-heading h2 {
+  font-size: 27px;
+  letter-spacing: -.7px;
+  margin-bottom: 9px;
+}
+
+.card-heading p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ===== INPUTS ===== */
+.field {
+  margin-bottom: 17px;
+}
+
+label {
+  display: block;
+  color: #DCE2F0;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 9px;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.input-wrap input {
+  width: 100%;
+  height: 49px;
+  padding: 0 14px;
+  color: #fff;
+  background: rgba(255,255,255,.035);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px;
+  outline: none;
+  font: inherit;
+  font-size: 13px;
+  transition: .25s;
+}
+
+.input-wrap input::placeholder { color: #68738A; }
+
+.input-wrap input:focus {
+  border-color: var(--primary);
+  background: rgba(139,124,255,.055);
+  box-shadow: 0 0 0 3px rgba(139,124,255,.12);
+}
+
+.password-input { padding-right: 65px !important; }
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #A99AFF;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+  margin: 20px 0;
+}
+
+.terms input {
+  margin-top: 4px;
+  accent-color: var(--primary);
+}
+
+.terms a {
+  color: #B7ACFF;
+  text-decoration: none;
+}
+
+/* ===== PRIMARY BUTTON ===== */
+.primary-btn {
+  width: 100%;
+  min-height: 49px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(100deg, #7968F7, #6655E8);
+  color: white;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .3px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(105,86,235,.23);
+  transition: .25s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(105,86,235,.38);
+}
+
+.primary-btn:active { transform: scale(.99); }
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 22px 0;
+  color: #778198;
+  font-size: 11px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  width: 100%;
+  height: 47px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.025);
+  color: #F2F4FA;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.google-btn:hover {
+  background: rgba(255,255,255,.075);
+  border-color: rgba(255,255,255,.25);
+}
+
+.google-icon {
+  font-size: 19px;
+  font-weight: 900;
+  color: #8CB7FF;
+}
+
+.message {
+  display: none;
+  padding: 12px;
+  margin-top: 16px;
+  border-radius: 9px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.message.success {
+  display: block;
+  color: #83F0CF;
+  background: rgba(38,208,150,.09);
+  border: 1px solid rgba(38,208,150,.2);
+}
+
+.message.error {
+  display: block;
+  color: #FFAAAA;
+  background: rgba(255,90,110,.08);
+  border: 1px solid rgba(255,90,110,.2);
+}
+
+.security-note {
+  text-align: center;
+  color: #778198;
+  font-size: 10px;
+  margin-top: 22px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  padding: 20px;
+  text-align: center;
+  color: #707B91;
+  font-size: 11px;
+  border-top: 1px solid rgba(255,255,255,.05);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 850px) {
+  main {
+    grid-template-columns: 1fr;
+    max-width: 510px;
+    gap: 36px;
+    padding-top: 30px;
+  }
+
+  .intro { text-align: center; }
+  .intro p { margin: auto; }
+  .benefits {
+    display: inline-grid;
+    text-align: left;
+  }
+
+  h1 {
+    font-size: 46px;
+    letter-spacing: -1.8px;
+  }
+}
+
+@media (max-width: 480px) {
+  header { padding: 22px 20px; }
+  .logo { font-size: 21px; }
+  .header-link { font-size: 12px; }
+  main { padding: 22px 16px 35px; }
+  h1 { font-size: 39px; }
+  .signup-card { padding: 24px 20px; }
+  .card-heading h2 { font-size: 24px; }
+}
+</style>
+</head>
+
+<body>
+<div class="background">
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+</div>
+
+<header>
+  <div class="logo">SIGNUP<span>.</span></div>
+  <div class="header-link">
+    Already a member?
+    <a href="#" id="signinLink">Sign in ↗</a>
+  </div>
+</header>
+
+<main>
+  <section class="intro">
+    <div class="eyebrow"><i></i> THE NEXT GENERATION</div>
+
+    <h1>
+      Build your<br>
+      <span class="gradient-text">digital future.</span>
+    </h1>
+
+    <p>
+      Join a smarter digital experience. Create your account
+      and unlock powerful tools designed for ambitious people
+      and modern businesses.
+    </p>
+
+    <div class="benefits">
+      <div class="benefit">
+        <span class="check">✓</span>
+        A clean, premium workspace
+      </div>
+      <div class="benefit">
+        <span class="check">✓</span>
+        Privacy-focused account design
+      </div>
+      <div class="benefit">
+        <span class="check">✓</span>
+        Built for desktop and mobile
+      </div>
+    </div>
+  </section>
+
+  <section class="signup-card">
+    <div class="card-heading">
+      <h2>Create your account</h2>
+      <p>Start your journey today. It only takes a minute.</p>
+    </div>
+
+    <form id="signupForm">
+      <div class="field">
+        <label for="fullname">FULL NAME</label>
+        <div class="input-wrap">
+          <input id="fullname" name="fullname"
+            type="text" placeholder="Enter your full name"
+            autocomplete="name" required minlength="2">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">EMAIL ADDRESS</label>
+        <div class="input-wrap">
+          <input id="email" name="email"
+            type="email" placeholder="you@example.com"
+            autocomplete="email" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="password">PASSWORD</label>
+        <div class="input-wrap">
+          <input id="password" name="password"
+            class="password-input" type="password"
+            placeholder="Minimum 8 characters"
+            autocomplete="new-password"
+            minlength="8" required>
+          <button type="button" class="toggle-password"
+            id="togglePassword">SHOW</button>
+        </div>
+      </div>
+
+      <label class="terms">
+        <input type="checkbox" id="agree" required>
+        <span>
+          I agree to the <a href="#" class="localLink">Terms of Service</a>
+          and <a href="#" class="localLink">Privacy Policy</a>.
+        </span>
+      </label>
+
+      <button class="primary-btn" type="submit">
+        CREATE ACCOUNT &nbsp; →
+      </button>
+
+      <div class="divider">OR CONTINUE WITH</div>
+
+      <button class="google-btn" type="button" id="googleBtn">
+        <span class="google-icon">G</span>
+        Continue with Google
+      </button>
+
+      <div class="message" id="message" role="status"
+        aria-live="polite"></div>
+    </form>
+
+    <div class="security-note">
+      ◈ Your journey starts with a secure connection.
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2026 NEXORA. Crafted for the future.
+</footer>
+
+<script>
+// ===== SHOW / HIDE PASSWORD =====
+const password = document.getElementById("password");
+const togglePassword = document.getElementById("togglePassword");
+
+togglePassword.addEventListener("click", () => {
+  const hidden = password.type === "password";
+  password.type = hidden ? "text" : "password";
+  togglePassword.textContent = hidden ? "HIDE" : "SHOW";
+});
+
+// ===== SIGNUP FORM VALIDATION =====
+const form = document.getElementById("signupForm");
+const message = document.getElementById("message");
+
+function showMessage(text, type) {
+  message.textContent = text;
+  message.className = "message " + type;
+}
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const name = document.getElementById("fullname").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const pass = password.value;
+
+  if (name.length < 2) {
+    showMessage("Please enter your full name.", "error");
+    return;
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    showMessage("Please enter a valid email address.", "error");
+    return;
+  }
+
+  if (pass.length < 8) {
+    showMessage("Password must contain at least 8 characters.", "error");
+    return;
+  }
+
+  if (!document.getElementById("agree").checked) {
+    showMessage("Please accept the terms to continue.", "error");
+    return;
+  }
+
+  // Frontend demo only: no account is created or stored.
+  showMessage(
+    "Form validated successfully! Connect your backend to create your account.",
+    "success"
+  );
+});
+
+// ===== GOOGLE SIGNUP DEMO =====
+document.getElementById("googleBtn").addEventListener("click", () => {
+  showMessage(
+    "Google signup needs Google Identity Services and backend configuration.",
+    "error"
+  );
+});
+
+// ===== DEMO LINKS =====
+document.getElementById("signinLink").addEventListener("click", (event) => {
+  event.preventDefault();
+  showMessage(
+    "Connect this link to your actual sign-in page.",
+    "error"
+  );
+});
+
+document.querySelectorAll(".localLink").forEach(link => {
+  link.addEventListener("click", event => {
+    event.preventDefault();
+    showMessage(
+      "Add your actual Terms of Service or Privacy Policy page URL.",
+      "error"
+    );
+  });
+});
+</script>
+</body>
+</html>
